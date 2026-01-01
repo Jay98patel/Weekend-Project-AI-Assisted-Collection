@@ -4,7 +4,7 @@ import { SparkleIcon, StarIcon } from '../../components/icons'
 import { useNavigate } from 'react-router-dom'
 import styles from './GroupGiftsPage.module.css'
 
-// Import Images
+
 import WeddingGiftImg from '../../assets/images/wedding-gift.png'
 import BabyShowerImg from '../../assets/images/secrete-baby-shower-gift.png'
 import VolleyballImg from '../../assets/images/volleyball-coach-gift.png'
@@ -53,31 +53,34 @@ const GroupGiftsPage = () => {
           </div>
 
           <section className={styles.createSection}>
-            <div className={styles.createCards}>
-              <div className={styles.createCard}>
-                <h3>Create from scratch</h3>
-                <p>
-                  You can jump right in and start building your collection from scratch.
-                  Customize it exactly how you like!
-                </p>
-                <Button variant="primary" size="sm">Get Started</Button>
-              </div>
-              <div className={styles.createCard}>
-                <h3>
-                  Use AI to create <span className={styles.sparkle}><SparkleIcon /></span>
-                </h3>
-                <p>
-                  Use our super cool new AI builder that can create a layout for you or
-                  recommend existing templates
-                </p>
-                <Button
-                  variant="secondary"
-                  size="sm"
-                  onClick={() => navigate('/collections/group-gifts/ai?step=input')}
-                  className={styles.tryAiButton}
-                >
-                  Try AI Creator
-                </Button>
+            <div className={styles.leftColumn}>
+              <div className={styles.sectionLabel}>CREATE FROM SCRATCH</div>
+              <div className={styles.createCards}>
+                <div className={styles.createCard}>
+                  <h3>Create from scratch</h3>
+                  <p>
+                    You can jump right in and start building your collection from scratch.
+                    Customize it exactly how you like!
+                  </p>
+                  <Button variant="primary" size="sm">Get Started</Button>
+                </div>
+                <div className={styles.createCard}>
+                  <h3>
+                    Use AI to create <span className={styles.sparkle}><SparkleIcon /></span>
+                  </h3>
+                  <p>
+                    Use our super cool new AI builder that can create a layout for you or
+                    recommend existing templates
+                  </p>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    onClick={() => navigate('/collections/group-gifts/ai?step=input')}
+                    className={styles.tryAiButton}
+                  >
+                    Try AI Creator
+                  </Button>
+                </div>
               </div>
             </div>
             
@@ -87,7 +90,6 @@ const GroupGiftsPage = () => {
               </div>
 
               <div className={styles.previewCardsRow}>
-                {/* Card 1: Build/Save */}
                 <div className={styles.previewCard}>
                   <div className={styles.cardHeader}>
                     <span className={styles.activeTab}>Build</span>
@@ -114,7 +116,6 @@ const GroupGiftsPage = () => {
                   </div>
                 </div>
 
-                {/* Card 2: Manage/Withdraw */}
                 <div className={styles.previewCard}>
                   <div className={styles.cardHeader}>
                     <span>Build</span>
@@ -131,9 +132,9 @@ const GroupGiftsPage = () => {
                       <div className={styles.priceTag}>$475.00</div>
                       
                       <div className={styles.avatarsRow}>
-                         <div className={styles.avatarImg} style={{ backgroundColor: '#ccc' }} /> 
-                         <div className={styles.avatarImg} style={{ backgroundColor: '#bbb' }} /> 
-                         <div className={styles.avatarImg} style={{ backgroundColor: '#aaa' }} /> 
+                         <div className={styles.avatarImg} /> 
+                         <div className={styles.avatarImg} /> 
+                         <div className={styles.avatarImg} /> 
                          <div className={styles.avatarCount}>+36</div>
                       </div>
 

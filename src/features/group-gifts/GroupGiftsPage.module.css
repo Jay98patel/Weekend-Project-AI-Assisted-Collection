@@ -14,19 +14,22 @@
 
 .header h1 {
   font-family: var(--font-heading);
-  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 45px;
   color: var(--color-grey-800);
   margin: 0 0 var(--space-4);
-  text-decoration: underline;
-  text-decoration-color: var(--color-aqua-600);
-  text-decoration-thickness: 3px;
-  text-underline-offset: 4px;
+  /* Removed underline */
 }
 
 .header p {
-  color: var(--color-grey-600);
-  font-size: 16px;
-  line-height: 1.5;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--color-grey-800);
 }
 
 .createSection {
@@ -36,10 +39,30 @@
   align-items: center;
 }
 
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  flex: 1;
+}
+
+.sectionLabel {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--color-grey-600);
+  text-transform: uppercase;
+  margin-bottom: -16px;
+}
+
+
+
 .createCards {
   display: flex;
   gap: var(--space-6);
-  flex: 1;
+
 }
 
 .createCard {
@@ -57,8 +80,11 @@
 }
 
 .createCard h3 {
-  font-size: 18px;
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 24px;
   color: var(--color-grey-800);
   margin: 0;
   display: flex;
@@ -67,9 +93,12 @@
 }
 
 .createCard p {
-  font-size: 14px;
-  color: var(--color-grey-600);
-  line-height: 1.5;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-grey-800);
   flex: 1;
 }
 
@@ -128,7 +157,7 @@
 }
 
 .cardHeader {
-  background-color: #E8EFF1;
+  background-color: var(--color-teal-100);
   padding: 8px 12px;
   display: flex;
   justify-content: space-between;
@@ -138,7 +167,7 @@
 .cardHeader span {
   font-size: 10px;
   font-weight: 600;
-  color: #8CAAB1;
+  color: var(--color-teal-400);
   cursor: default;
 }
 
@@ -154,7 +183,7 @@
 }
 
 .purpleHero {
-  background-color: #A89CE3;
+  background-color: var(--color-purple-300);
   height: 100px;
   display: flex;
   justify-content: center;
@@ -164,9 +193,9 @@
 }
 
 .bearImg {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .checkmarkOverlay {
@@ -271,6 +300,18 @@
   border: 2px solid white;
   background-size: cover;
   margin-right: -6px;
+}
+
+.avatarImg:nth-child(1) {
+  background-color: var(--color-grey-300);
+}
+
+.avatarImg:nth-child(2) {
+  background-color: var(--color-grey-400);
+}
+
+.avatarImg:nth-child(3) {
+  background-color: var(--color-grey-500);
 }
 
 .avatarCount {
@@ -417,4 +458,41 @@
   padding: 4px;
   display: flex;
   box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 1024px) {
+  .createSection {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .previewStack {
+    margin-top: var(--space-8);
+    justify-content: center;
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header h1 {
+    font-size: 28px;
+  }
+  
+  .createCards {
+    flex-direction: column;
+  }
+  
+  .previewStack {
+    transform: scale(0.85);
+    margin-left: -20px;
+    transform-origin: center top;
+  }
+}
+
+@media (max-width: 480px) {
+  .previewStack {
+    transform: scale(0.65);
+    margin-left: -40px; 
+    margin-bottom: -100px;
+  }
 }
