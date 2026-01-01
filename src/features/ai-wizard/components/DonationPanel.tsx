@@ -36,7 +36,6 @@ const DonationPanel = ({
       </div>
       <div className={styles.actions}>
         <Button className={styles.donateButton} size="sm" variant="secondary">
-          <DonationIcon />
           Donate Now
         </Button>
       </div>

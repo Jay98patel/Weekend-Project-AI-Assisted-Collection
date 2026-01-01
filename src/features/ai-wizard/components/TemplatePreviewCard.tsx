@@ -17,10 +17,10 @@ const TemplatePreviewCard = ({
   return (
     <div className={styles.card}>
       <div className={styles.actions}>
-        <Button variant="secondary" size="sm">
+        <Button className={styles.previewButton} variant="secondary" size="md">
           Preview
         </Button>
-        <Button variant="primary" size="sm">
+        <Button className={styles.tryButton} variant="primary" size="md">
           Try this out
         </Button>
       </div>

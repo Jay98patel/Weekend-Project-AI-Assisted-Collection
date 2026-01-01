@@ -43,7 +43,7 @@
 }
 
 .addDonation {
-  width: min(100%, 760px);
+  width: min(100%, 863px);
   height: 56px;
   border-radius: var(--radius-md);
   border: 1px solid var(--color-grey-200);
