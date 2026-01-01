@@ -62,7 +62,7 @@ const GroupGiftsPage = () => {
                     You can jump right in and start building your collection from scratch.
                     Customize it exactly how you like!
                   </p>
-                  <Button variant="primary" size="sm">Get Started</Button>
+                  <Button variant="primary" size="sm" className={styles.getStartedButton}>Get Started</Button>
                 </div>
                 <div className={styles.createCard}>
                   <h3>

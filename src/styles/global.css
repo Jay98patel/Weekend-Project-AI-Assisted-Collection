@@ -28,7 +28,7 @@ body {
 body {
   font-family: var(--font-body);
   color: var(--color-grey-800);
-  background-color: var(--color-white);
+  background-color: var(--color-grey-100);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }

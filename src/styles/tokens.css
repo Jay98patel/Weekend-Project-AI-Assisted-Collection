@@ -1,5 +1,5 @@
 ﻿:root {
-  /* Greys */
+
   --color-grey-100: #f7f7f7;
   --color-grey-200: #f0f0f0;
   --color-grey-300: #dedede;
@@ -8,7 +8,7 @@
   --color-grey-700: #4a4a4a;
   --color-grey-800: #2e2e2e;
 
-  /* Brand Colors */
+
   --color-orange-100: #fff0ea; 
   --color-orange-500: #f36d36;
   --color-yellow-500: #f9c442;
@@ -20,18 +20,18 @@
   --color-teal-400: #8CAAB1;
   --color-purple-300: #A89CE3;
 
-  /* Base Colors */
+
   --color-black: #000000;
   --color-white: #ffffff;
 
-  /* Accent Colors */
+
   --color-accent-pink: #ff17c5;
   --color-accent-purple: #8a38f5;
   --color-accent-lavender: #e9cdf2;
   --color-accent-green: #00de67;
   --color-accent-charcoal: #414042;
 
-  /* Gradients */
+
   --gradient-orange-yellow: linear-gradient(135deg, var(--color-orange-500) 0%, var(--color-yellow-500) 100%);
   --font-heading: "Glamour Absolute", "Playfair Display", "Times New Roman", serif;
   --font-body: "Avenir", "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
