@@ -1,4 +1,5 @@
-﻿import TopNav from '../../../components/TopNav'
+﻿import { useState } from 'react'
+import TopNav from '../../../components/TopNav'
 import Chip from '../../../components/Chip'
 import PromptInput from '../components/PromptInput'
 import { useWizard } from '../WizardContext'
@@ -17,10 +18,18 @@ const suggestions = [
 
 const InputStep = ({ onSubmit }: InputStepProps) => {
   const { state, dispatch } = useWizard()
+  const [isExiting, setIsExiting] = useState(false)
 
   const handleChipClick = (label: string, prompt: string) => {
     dispatch({ type: 'setCategory', category: label })
     dispatch({ type: 'setPrompt', prompt })
+  }
+
+  const handleSubmit = (prompt: string) => {
+    setIsExiting(true)
+    setTimeout(() => {
+      onSubmit(prompt)
+    }, 600)
   }
 
   return (
@@ -29,7 +38,7 @@ const InputStep = ({ onSubmit }: InputStepProps) => {
         left={{ label: 'Previous', to: '/collections/group-gifts' }}
         right={{ label: 'Back to Dashboard', to: '/dashboard' }}
       />
-      <main className={styles.main}>
+      <main className={`${styles.main} ${isExiting ? styles.exiting : ''}`}>
         <div className={styles.center}>
           <h1 className={styles.heading}>Hi Molly, I'll help you get started!</h1>
           <p className={styles.subtext}>
@@ -39,7 +48,7 @@ const InputStep = ({ onSubmit }: InputStepProps) => {
             <PromptInput
               value={state.userPrompt}
               onChange={(value) => dispatch({ type: 'setPrompt', prompt: value })}
-              onSubmit={() => onSubmit(state.userPrompt)}
+              onSubmit={() => handleSubmit(state.userPrompt)}
               placeholder="I'm collecting a group gift for..."
               size="center"
               autoFocus

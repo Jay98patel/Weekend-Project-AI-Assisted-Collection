@@ -2,12 +2,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 16px;
+  padding: 10px 20px;
   border-radius: var(--radius-pill);
   background-color: var(--color-teal-200);
   color: var(--color-teal-600);
   border: 1px solid transparent;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
