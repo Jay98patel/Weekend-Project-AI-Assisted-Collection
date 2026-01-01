@@ -125,7 +125,6 @@ const GroupGiftsPage = () => {
                   <div className={styles.cardBody}>
                     <div className={styles.purpleHero}>
                       <img src={SelectedBearImg} alt="Bear" className={styles.bearImg} />
-                      <div className={styles.checkmarkOverlay}>✓</div>
                     </div>
                     <div className={styles.cardContent}>
                       <p className={styles.officeLabel}>From the office</p>

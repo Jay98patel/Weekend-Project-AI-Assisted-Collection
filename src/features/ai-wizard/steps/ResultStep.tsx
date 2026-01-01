@@ -78,6 +78,13 @@ const ResultStep = ({ onRetry, onClear }: ResultStepProps) => {
                   description: value,
                 })
               }
+              onImageSave={(value) =>
+                dispatch({
+                  type: 'setTemplateContent',
+                  id: selectedTemplate.id,
+                  image: value,
+                })
+              }
             />
             {!state.isCustomDonationEnabled ? (
               <button

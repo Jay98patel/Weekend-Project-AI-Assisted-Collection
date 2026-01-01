@@ -39,7 +39,7 @@ type WizardAction =
   | { type: 'setCustomDonationEnabled'; enabled: boolean }
   | { type: 'setDonationTitle'; title: string }
   | { type: 'setDonationDescription'; description: string }
-  | { type: 'setTemplateContent'; id: string; title?: string; description?: string }
+  | { type: 'setTemplateContent'; id: string; title?: string; description?: string; image?: string }
   | { type: 'setError'; message: string }
   | { type: 'resetError' }
 
@@ -47,7 +47,26 @@ const defaultState: WizardState = {
   userPrompt: '',
   category: null,
   apiStatus: 'idle',
-  templates: [],
+  templates: [
+    {
+      id: 'wedding-1',
+      title: 'Group Gift Collection',
+      description:
+        'Contribute to a meaningful group gift that celebrates someone special and brings everyone together.',
+      image:
+        'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=2000',
+      category: 'wedding',
+    },
+    {
+      id: 'wedding-2',
+      title: 'Honeymoon Fund',
+      description:
+        'Help the happy couple start their life together with an unforgettable honeymoon experience.',
+      image:
+        'https://images.unsplash.com/photo-1530021356-8968600d3d52?auto=format&fit=crop&q=80&w=2000',
+      category: 'wedding',
+    },
+  ],
   feedback: '',
   selectedTemplateId: null,
   isCustomDonationEnabled: false,
@@ -102,6 +121,7 @@ const reducer = (state: WizardState, action: WizardAction): WizardState => {
                 ...template,
                 title: action.title ?? template.title,
                 description: action.description ?? template.description,
+                image: action.image ?? template.image,
               }
             : template
         ),
