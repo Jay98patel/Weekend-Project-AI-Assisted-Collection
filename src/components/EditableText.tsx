@@ -1,5 +1,6 @@
-﻿import { KeyboardEvent, useEffect, useRef, useState } from 'react'
-import { CheckIcon, XIcon } from './icons'
+﻿import { useEffect, useRef, useState } from 'react'
+import type { KeyboardEvent } from 'react'
+import { DoneIcon, CancelIcon } from './icons'
 import styles from './EditableText.module.css'
 
 type EditableTextProps = {
@@ -7,7 +8,7 @@ type EditableTextProps = {
   onSave: (value: string) => void
   label: string
   multiline?: boolean
-  variant?: 'title' | 'body'
+  variant?: 'title' | 'description' | 'donation' | 'body'
 }
 
 const EditableText = ({
@@ -66,13 +67,134 @@ const EditableText = ({
     }
   }
 
+  if (variant === 'title') {
+    return (
+      <div className={styles.wrapper}>
+        {isEditing ? (
+          <div className={styles.titleInputWrapper}>
+            <input
+              ref={inputRef as React.Ref<HTMLInputElement>}
+              className={styles.titleInput}
+              value={draft}
+              onChange={(event) => setDraft(event.target.value)}
+              onKeyDown={onKeyDown}
+              aria-label={label}
+            />
+            <div className={styles.titleActions}>
+              <button className={`${styles.iconButton} ${styles.confirm}`} type="button" onClick={saveEdit} aria-label="Save">
+                <DoneIcon />
+              </button>
+              <button className={`${styles.iconButton} ${styles.cancel}`} type="button" onClick={cancelEdit} aria-label="Cancel">
+                <CancelIcon />
+              </button>
+            </div>
+          </div>
+        ) : (
+          <button
+            ref={buttonRef}
+            type="button"
+            onClick={startEdit}
+            className={`${styles.display} ${styles.title}`}
+            aria-label={label}
+          >
+            {value}
+          </button>
+        )}
+      </div>
+    )
+  }
+
+  if (variant === 'description') {
+    return (
+      <div className={styles.wrapper}>
+        {isEditing ? (
+          <div className={styles.descriptionWrapper}>
+            <textarea
+              ref={inputRef as React.Ref<HTMLTextAreaElement>}
+              className={styles.descriptionInput}
+              value={draft}
+              onChange={(event) => setDraft(event.target.value)}
+              onKeyDown={onKeyDown}
+              aria-label={label}
+              rows={4}
+            />
+            <div>
+              <button className={styles.saveButton} type="button" onClick={saveEdit}>
+                Save
+              </button>
+            </div>
+          </div>
+        ) : (
+          <button
+            ref={buttonRef}
+            type="button"
+            onClick={startEdit}
+            className={`${styles.display} ${styles.body}`}
+            aria-label={label}
+          >
+            {value}
+          </button>
+        )}
+      </div>
+    )
+  }
+
+  if (variant === 'donation') {
+    return (
+      <div className={styles.wrapper}>
+        {isEditing ? (
+          <div className={styles.donationWrapper}>
+            {multiline ? (
+              <textarea
+                ref={inputRef as React.Ref<HTMLTextAreaElement>}
+                className={styles.donationInput}
+                value={draft}
+                onChange={(event) => setDraft(event.target.value)}
+                onKeyDown={onKeyDown}
+                aria-label={label}
+                rows={3}
+              />
+            ) : (
+              <input
+                ref={inputRef as React.Ref<HTMLInputElement>}
+                className={styles.donationInput}
+                value={draft}
+                onChange={(event) => setDraft(event.target.value)}
+                onKeyDown={onKeyDown}
+                aria-label={label}
+              />
+            )}
+            <div className={styles.titleActions}>
+              <button className={`${styles.iconButton} ${styles.confirm}`} type="button" onClick={saveEdit} aria-label="Save">
+                <DoneIcon style={{ width: 22, height: 22 }} />
+              </button>
+              <button className={`${styles.iconButton} ${styles.cancel}`} type="button" onClick={cancelEdit} aria-label="Cancel">
+                <CancelIcon style={{ width: 22, height: 22 }} />
+              </button>
+            </div>
+          </div>
+        ) : (
+          <button
+            ref={buttonRef}
+            type="button"
+            onClick={startEdit}
+            className={`${styles.display} ${styles[variant]}`}
+            aria-label={label}
+          >
+            {value || <span style={{ color: '#999', fontStyle: 'italic' }}>Click to edit</span>}
+          </button>
+        )}
+      </div>
+    )
+  }
+
   return (
     <div className={styles.wrapper}>
       {isEditing ? (
         <>
           {multiline ? (
             <textarea
-              ref={inputRef}
+              ref={inputRef as React.Ref<HTMLTextAreaElement>}
               className={`${styles.input} ${styles[variant]}`}
               value={draft}
               onChange={(event) => setDraft(event.target.value)}
@@ -82,7 +204,7 @@ const EditableText = ({
             />
           ) : (
             <input
-              ref={inputRef}
+              ref={inputRef as React.Ref<HTMLInputElement>}
               className={`${styles.input} ${styles[variant]}`}
               value={draft}
               onChange={(event) => setDraft(event.target.value)}
@@ -90,12 +212,12 @@ const EditableText = ({
               aria-label={label}
             />
           )}
-          <div className={styles.actions}>
-            <button className={styles.confirm} type="button" onClick={saveEdit} aria-label="Save">
-              <CheckIcon />
+           <div className={styles.titleActions}>
+            <button className={`${styles.iconButton} ${styles.confirm}`} type="button" onClick={saveEdit} aria-label="Save">
+              <DoneIcon />
             </button>
-            <button className={styles.cancel} type="button" onClick={cancelEdit} aria-label="Cancel">
-              <XIcon />
+            <button className={`${styles.iconButton} ${styles.cancel}`} type="button" onClick={cancelEdit} aria-label="Cancel">
+              <CancelIcon />
             </button>
           </div>
         </>
@@ -107,7 +229,7 @@ const EditableText = ({
           className={`${styles.display} ${styles[variant]}`}
           aria-label={label}
         >
-          {value}
+          {value || <span style={{ color: '#999', fontStyle: 'italic' }}>Click to edit</span>}
         </button>
       )}
     </div>
@@ -115,3 +237,4 @@ const EditableText = ({
 }
 
 export default EditableText
+

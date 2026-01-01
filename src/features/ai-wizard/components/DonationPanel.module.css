@@ -1,52 +1,72 @@
 ﻿.panel {
   position: relative;
-  width: min(100%, 760px);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-grey-200);
-  background-color: var(--color-white);
   display: flex;
-  align-items: center;
-  padding: var(--space-4);
-  gap: var(--space-4);
-  box-shadow: var(--shadow-sm);
+  flex-direction: row;
+  align-items: stretch;
+  padding: 0px 24px;
+  
+  width: min(100%, 760px);
+  min-height: 106px;
+  height: auto;
+
+  background: #FFFFFF;
+  box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
 }
 
 .fields {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-}
-
-.titleInput,
-.descriptionInput {
-  width: 100%;
-  border: 1px solid var(--color-grey-300);
-  border-radius: var(--radius-sm);
-  padding: 8px 10px;
-  font-size: 13px;
-  color: var(--color-grey-700);
-}
-
-.descriptionInput {
-  resize: none;
+  gap: 12px;
+  justify-content: center;
+  padding-right: 24px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-right: 1px solid #DEDEDE;
+  margin: 0;
 }
 
 .actions {
   display: flex;
   align-items: center;
+  padding-left: 24px;
 }
 
 .donateButton {
-  background-color: var(--color-teal-600);
-  color: var(--color-white);
-  border: 1px solid var(--color-teal-600);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  gap: 8px;
+
+  width: 112px;
+  height: 36px;
+
+  background: #257F91;
+  border-radius: 40px;
+  border: none;
+  
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1;
+  color: #FFFFFF;
+}
+
+.donateButton svg path {
+  fill: #FFFFFF;
+}
+
+.donateButton:hover {
+  background: #1e6675;
 }
 
 .delete {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: -12px;
+  right: -12px;
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -57,4 +77,37 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.panel:hover .delete {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 640px) {
+  .panel {
+    flex-direction: column;
+    height: auto;
+    padding: 24px;
+    align-items: center;
+  }
+
+  .fields {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #DEDEDE;
+    padding: 0;
+    padding-bottom: 24px;
+    margin-bottom: 0;
+  }
+
+  .actions {
+    padding-left: 0;
+    padding-top: 24px;
+    width: 100%;
+    justify-content: center;
+  }
 }

@@ -1,5 +1,6 @@
 ﻿import Button from '../../../components/Button'
-import { TrashIcon } from '../../../components/icons'
+import EditableText from '../../../components/EditableText'
+import { TrashIcon, DonationIcon } from '../../../components/icons'
 import styles from './DonationPanel.module.css'
 
 type DonationPanelProps = {
@@ -20,22 +21,22 @@ const DonationPanel = ({
   return (
     <div className={styles.panel} data-testid="donation-panel">
       <div className={styles.fields}>
-        <input
-          className={styles.titleInput}
+        <EditableText
           value={title}
-          onChange={(event) => onTitleChange(event.target.value)}
-          aria-label="Donation title"
+          onSave={onTitleChange}
+          label="Donation title"
+          variant="donation"
         />
-        <textarea
-          className={styles.descriptionInput}
+        <EditableText
           value={description}
-          onChange={(event) => onDescriptionChange(event.target.value)}
-          aria-label="Donation description"
-          rows={2}
+          onSave={onDescriptionChange}
+          label="Donation description"
+          variant="donation"
         />
       </div>
       <div className={styles.actions}>
         <Button className={styles.donateButton} size="sm" variant="secondary">
+          <DonationIcon />
           Donate Now
         </Button>
       </div>

@@ -38,7 +38,7 @@ const TemplatePreviewCard = ({
           value={template.description}
           onSave={onDescriptionSave}
           label="Edit description"
-          variant="body"
+          variant="description"
           multiline
         />
       </div>
