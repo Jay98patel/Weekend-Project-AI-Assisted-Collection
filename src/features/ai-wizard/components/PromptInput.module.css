@@ -30,8 +30,6 @@
 
 .input:focus {
   outline: none;
-  border-color: var(--color-teal-200);
-  box-shadow: 0 0 0 4px var(--color-teal-100);
 }
 
 .input::placeholder {
