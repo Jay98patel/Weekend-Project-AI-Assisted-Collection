@@ -34,17 +34,21 @@
 }
 
 .skeletonCard {
-  width: min(100%, 760px);
-  border-radius: var(--radius-lg);
+  width: 863px;
+  height: 647px;
+  border-radius: 12px;
   background-color: var(--color-white);
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--color-grey-200);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .skeletonHero {
-  height: 260px;
+  flex: 1;
   background-color: var(--color-grey-100);
+  min-height: 0;
 }
 
 .skeletonBody {
@@ -52,6 +56,8 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+  height: 209px;
+  flex: 0 0 auto;
 }
 
 .skeletonLine,
@@ -69,18 +75,32 @@
   width: 85%;
 }
 
-.skeletonFooter {
-  width: min(100%, 760px);
-  height: 56px;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-grey-200);
+.skeletonDonation {
+  width: 863px;
+  height: 93px;
   background-color: var(--color-white);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 24px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-grey-200); 
+}
+
+.skeletonDonationContent {
+  width: 230px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: var(--color-grey-100);
 }
 
 .skeletonHero,
 .skeletonLine,
 .skeletonLineWide,
-.feedbackSkeleton {
+.feedbackSkeleton,
+.skeletonDonationContent {
   position: relative;
   overflow: hidden;
 }
@@ -88,7 +108,8 @@
 .skeletonHero::after,
 .skeletonLine::after,
 .skeletonLineWide::after,
-.feedbackSkeleton::after {
+.feedbackSkeleton::after,
+.skeletonDonationContent::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -105,3 +126,4 @@
     transform: translateX(100%);
   }
 }
+

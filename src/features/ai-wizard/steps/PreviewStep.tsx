@@ -40,7 +40,10 @@ const PreviewStep = ({ onClear }: PreviewStepProps) => {
             <div className={styles.skeletonLineWide} />
           </div>
         </div>
-        <div className={styles.skeletonFooter} />
+        <div className={styles.skeletonDonation}>
+          <div className={styles.skeletonDonationContent} />
+        </div>
+
       </main>
     </div>
   )
