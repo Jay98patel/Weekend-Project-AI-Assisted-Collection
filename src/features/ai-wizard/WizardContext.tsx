@@ -1,10 +1,10 @@
 ﻿import {
   createContext,
-  Dispatch,
-  ReactNode,
   useContext,
   useEffect,
   useReducer,
+  type Dispatch,
+  type ReactNode,
 } from 'react'
 
 export type Template = {
