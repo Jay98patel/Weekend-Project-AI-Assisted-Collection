@@ -163,7 +163,11 @@ export const WizardProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(reducer, defaultState, initState)
 
   useEffect(() => {
-    window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state))
+    try {
+      window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state))
+    } catch (error) {
+      console.warn('Failed to save wizard state to session storage:', error)
+    }
   }, [state])
 
   return (

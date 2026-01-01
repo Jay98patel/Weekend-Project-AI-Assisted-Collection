@@ -1,4 +1,4 @@
-﻿import { useRef, type ChangeEvent } from 'react'
+﻿import { useRef, useState, type ChangeEvent } from 'react'
 import Button from '../../../components/Button'
 import EditableText from '../../../components/EditableText'
 import type { Template } from '../WizardContext'
@@ -18,6 +18,7 @@ const TemplatePreviewCard = ({
   onImageSave,
 }: TemplatePreviewCardProps) => {
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const [error, setError] = useState<string | null>(null)
 
   const handleImageClick = () => {
     fileInputRef.current?.click()
@@ -26,6 +27,12 @@ const TemplatePreviewCard = ({
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
     if (file) {
+      if (file.size > 1024 * 1024) {
+        setError('Image must be under 1MB')
+        return
+      }
+      
+      setError(null)
       const reader = new FileReader()
       reader.onloadend = () => {
         const result = reader.result as string
@@ -57,6 +64,7 @@ const TemplatePreviewCard = ({
             <span>Click to change image</span>
           </div>
         </button>
+        {error && <div className={styles.errorPill}>{error}</div>}
         <input
           ref={fileInputRef}
           type="file"

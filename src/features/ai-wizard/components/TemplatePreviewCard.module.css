@@ -61,6 +61,23 @@
   border-radius: 4px;
 }
 
+.errorPill {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #FEF2F2;
+  color: #B91C1C;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  pointer-events: none;
+  z-index: 10;
+  border: 1px solid #FECACA;
+}
+
 .heroButton:hover .editOverlay {
   opacity: 1;
 }
