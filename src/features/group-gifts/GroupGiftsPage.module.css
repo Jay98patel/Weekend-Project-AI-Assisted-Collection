@@ -4,288 +4,373 @@
 }
 
 .main {
-  padding: var(--space-7) 0 var(--space-12);
+  padding: var(--space-8) 0 var(--space-12);
+}
+
+.header {
+  margin-bottom: var(--space-8);
+  max-width: 600px;
 }
 
 .header h1 {
   font-family: var(--font-heading);
-  font-size: 28px;
-  margin: var(--space-5) 0 var(--space-2);
+  font-size: 32px; /* Adjust if Figma says 40 */
   color: var(--color-grey-800);
+  margin: 0 0 var(--space-4);
+  /* Underline effect - assuming simple border-bottom or pseudo */
+  text-decoration: underline;
+  text-decoration-color: var(--color-aqua-600);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
 }
 
 .header p {
-  margin: 0 0 var(--space-6);
   color: var(--color-grey-600);
-  font-size: 13px;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
+/* Create Section */
 .createSection {
   display: flex;
-  gap: var(--space-9);
-  align-items: flex-start;
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+  align-items: center;
 }
 
 .createCards {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-5);
+  display: flex;
+  gap: var(--space-6);
   flex: 1;
 }
 
 .createCard {
-  background-color: var(--color-white);
+  background: var(--color-white);
   border: 1px solid var(--color-grey-300);
-  border-radius: var(--radius-md);
-  padding: var(--space-5);
-  box-shadow: var(--shadow-sm);
+  border-radius: 8px;
+  padding: var(--space-6);
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  min-height: 180px;
+  gap: var(--space-4);
+  box-shadow: var(--shadow-sm);
+  align-items: flex-start;
+  min-height: 240px;
 }
 
 .createCard h3 {
-  margin: 0;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 700;
   color: var(--color-grey-800);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
 }
 
 .createCard p {
-  margin: 0;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--color-grey-600);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.sparkle {
+  color: var(--color-yellow-500);
+  display: inline-flex;
 }
 
 .tryAiButton {
   background-color: var(--color-teal-200);
-  color: var(--color-teal-600);
-  border: 1px solid var(--color-teal-200);
+  color: var(--color-teal-700);
+  border: none;
 }
 
-.sparkle {
-  display: inline-flex;
-  color: var(--color-orange-500);
-}
-
+/* Preview Stack (AI Visual) */
 .previewStack {
   position: relative;
-  width: 320px;
-  height: 260px;
+  width: 450px;
+  height: 350px;
+  /* background-color: var(--color-yellow-500); circle bg handled by girl wrapper or pseudo? */
 }
 
-.previewCircle {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: var(--gradient-orange-yellow);
+/* Yellow circle background behind girl */
+.girlWrapper {
   position: absolute;
-  left: 0;
-  top: 60px;
-}
-
-.previewCardSmall,
-.previewCardLarge {
-  position: absolute;
-  background-color: var(--color-white);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-grey-200);
-  box-shadow: var(--shadow-sm);
-  padding: var(--space-3);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.previewCardSmall {
-  width: 190px;
-  right: 0;
   top: 0;
+  right: 0;
+  width: 300px; 
+  height: 300px;
+  z-index: 1;
 }
 
+.girlWrapper::before {
+  content: "";
+  position: absolute;
+  inset: 20px;
+  background-color: var(--color-yellow-500);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.girlImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%; /* If girl image needs clipping */
+  /* Or just contain if transparent png */
+  object-fit: contain;
+  border-radius: 0;
+}
+
+/* The small card "Baby gift..." */
+.previewCardSmall {
+  position: absolute;
+  width: 180px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  z-index: 3;
+  left: 0;
+  bottom: 40px;
+  overflow: hidden;
+  border: 1px solid var(--color-grey-200);
+}
+
+/* The large card "From the office..." */
 .previewCardLarge {
-  width: 210px;
-  right: -10px;
-  top: 110px;
-  align-items: center;
+  position: absolute;
+  width: 180px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  z-index: 2;
+  left: 140px; /* Offset to right */
+  top: 20px; /* Offset to top */
+  overflow: hidden;
+  border: 1px solid var(--color-grey-200);
 }
 
 .previewHeader {
+  background: #E8F4F6; /* Light teal bg */
+  padding: 8px 12px;
   display: flex;
-  gap: var(--space-2);
-  font-size: 10px;
-  color: var(--color-grey-500);
   justify-content: space-between;
 }
 
 .previewHeader span {
-  flex: 1;
-  text-align: center;
+  font-size: 9px;
+  color: var(--color-teal-600);
+  font-weight: 600;
 }
 
 .previewBody {
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: 8px;
+  align-items: center;
+  text-align: center;
 }
 
-.previewThumb {
-  width: 100%;
-  height: 64px;
-  border-radius: var(--radius-sm);
-  background-color: var(--color-teal-200);
-}
-
-.previewThumbLarge {
-  width: 100%;
-  height: 80px;
-  border-radius: var(--radius-sm);
-  background-color: var(--color-teal-200);
-}
-
-.previewText {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  font-size: 11px;
-  color: var(--color-grey-700);
+.previewThumb img, .previewThumbLarge img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .previewText strong {
-  font-size: 11px;
-}
-
-.previewTotal {
-  font-size: 18px;
-  font-weight: 700;
+  display: block;
+  font-size: 12px;
   color: var(--color-grey-800);
+  margin-bottom: 4px;
 }
 
+.contributionRow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    color: var(--color-grey-600);
+    width: 100%;
+}
+.radio {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid var(--color-grey-300);
+}
+.checked {
+    background-color: var(--color-orange-500);
+    border-color: var(--color-orange-500);
+}
+
+.previewSaveBtn {
+    width: 100%;
+    font-size: 10px;
+    height: 24px;
+    min-height: 0;
+}
+.previewWithdrawBtn {
+    width: 100%;
+    font-size: 10px;
+    height: 28px;
+    min-height: 0;
+    margin: 12px;
+    width: calc(100% - 24px);
+}
+
+.previewPriceDetails {
+    text-align: center;
+    padding: 12px;
+}
+.previewLabel {
+    font-size: 10px;
+    color: var(--color-teal-600);
+    display: block;
+    margin-bottom: 4px;
+}
+.previewTotal {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--color-grey-800);
+}
+.avatars {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+}
+.avatar {
+    width: 16px;
+    height: 16px;
+    background: #ddd;
+    border-radius: 50%;
+    border: 1px solid white;
+    margin-left: -4px;
+}
+.avatarCount {
+    width: 16px;
+    height: 16px;
+    background: var(--color-yellow-500);
+    border-radius: 50%;
+    border: 1px solid white;
+    margin-left: -4px;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-grey-800);
+    font-weight: bold;
+}
+
+
+/* Templates Section */
 .templatesSection {
-  margin-top: var(--space-9);
+  margin-top: var(--space-8);
 }
 
 .templatesHeader {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--space-4);
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  color: var(--color-grey-500);
+  align-items: center;
+  margin-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-grey-300);
+  padding-bottom: var(--space-2);
+}
+
+.templatesHeader span {
   font-weight: 700;
+  color: var(--color-grey-600);
+  letter-spacing: 0.05em;
 }
 
 .sortButton {
+  background: none;
   border: 1px solid var(--color-grey-300);
-  border-radius: var(--radius-pill);
+  border-radius: 4px;
   padding: 6px 12px;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--color-grey-700);
-  background-color: var(--color-white);
   cursor: pointer;
 }
 
 .templatesGrid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--space-5);
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+@media (max-width: 1024px) {
+  .templatesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .templatesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .templatesGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .templateCard {
-  background-color: var(--color-white);
+  background: var(--color-white);
   border: 1px solid var(--color-grey-200);
-  border-radius: var(--radius-md);
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.15s ease, border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: none;
 }
 
 .templateCard:hover {
   transform: translateY(-1px);
-  border-color: var(--color-grey-500);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .templateImage {
-  height: 110px;
+  height: 140px;
+  background-color: var(--color-grey-100);
   position: relative;
 }
 
+.templateImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .templateBody {
-  padding: var(--space-3);
+  padding: var(--space-4);
 }
 
 .templateBody h4 {
-  margin: 0 0 4px;
-  font-size: 13px;
+  font-size: 14px;
+  margin: 0 0 var(--space-2);
   color: var(--color-grey-800);
 }
 
 .templateBody p {
+  font-size: 12px;
+  color: var(--color-grey-500);
   margin: 0;
-  font-size: 11px;
-  color: var(--color-grey-600);
 }
 
 .star {
   position: absolute;
+  top: 8px;
   right: 8px;
-  bottom: 8px;
-  color: var(--color-orange-500);
-}
-
-.imageWedding {
-  background: linear-gradient(135deg, var(--color-accent-lavender) 0%, var(--color-grey-100) 100%);
-}
-
-.imageBaby {
-  background: linear-gradient(135deg, var(--color-teal-200) 0%, var(--color-white) 100%);
-}
-
-.imageVolley {
-  background: linear-gradient(135deg, var(--color-yellow-500) 0%, var(--color-orange-100) 100%);
-}
-
-.imageRetirement {
-  background: linear-gradient(135deg, var(--color-orange-500) 0%, var(--color-orange-100) 100%);
-}
-
-.imageStaff {
-  background: linear-gradient(135deg, var(--color-aqua-600) 0%, var(--color-white) 100%);
-}
-
-.imageSanta {
-  background: linear-gradient(135deg, var(--color-accent-pink) 0%, var(--color-grey-100) 100%);
-}
-
-.imageGiving {
-  background: linear-gradient(135deg, var(--color-accent-green) 0%, var(--color-grey-100) 100%);
-}
-
-.imageBirthday {
-  background: linear-gradient(135deg, var(--color-accent-purple) 0%, var(--color-accent-lavender) 100%);
-}
-
-@media (max-width: 1024px) {
-  .createSection {
-    flex-direction: column;
-  }
-
-  .previewStack {
-    align-self: center;
-  }
-
-  .templatesGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 640px) {
-  .createCards {
-    grid-template-columns: 1fr;
-  }
-
-  .templatesGrid {
-    grid-template-columns: 1fr;
-  }
+  color: var(--color-yellow-500);
+  background: white;
+  border-radius: 50%;
+  padding: 4px;
+  display: flex;
+  box-shadow: var(--shadow-sm);
 }

@@ -4,22 +4,36 @@ import { SparkleIcon, StarIcon } from '../../components/icons'
 import { useNavigate } from 'react-router-dom'
 import styles from './GroupGiftsPage.module.css'
 
+// Import Images
+import WeddingGiftImg from '../../assets/images/wedding-gift.png'
+import BabyShowerImg from '../../assets/images/secrete-baby-shower-gift.png'
+import VolleyballImg from '../../assets/images/volleyball-coach-gift.png'
+import RetirementImg from '../../assets/images/coworker-retirement.png'
+import StaffImg from '../../assets/images/staff-appreciation.png'
+import SecretSantaImg from '../../assets/images/secrete-santa-signup-sheet.png'
+import EndYearImg from '../../assets/images/end-of-year-staff-giving.png'
+import BirthdayImg from '../../assets/images/birthday-surprise.png'
+
+import GirlImg from '../../assets/images/girl.png'
+import BearImg from '../../assets/images/bear.png'
+import SelectedBearImg from '../../assets/images/selected-bear.png'
+
 type TemplateCard = {
   title: string
   author: string
-  imageClass: string
+  image: string
   featured?: boolean
 }
 
 const templates: TemplateCard[] = [
-  { title: 'Wedding Gift', author: 'By: Cheddar Up', imageClass: 'imageWedding' },
-  { title: 'Secret! Baby Shower + Gift', author: 'By: Cheddar Up', imageClass: 'imageBaby' },
-  { title: 'Volleyball Coach Gift', author: 'By: Cheddar Up', imageClass: 'imageVolley' },
-  { title: 'Coworker Retirement Lunch + Gift', author: 'By: Cheddar Up', imageClass: 'imageRetirement' },
-  { title: 'Staff Appreciation Superheroes', author: 'By: Cheddar Up', imageClass: 'imageStaff' },
-  { title: 'Secret Santa Sign Up Sheet', author: 'By: Cheddar Up', imageClass: 'imageSanta', featured: true },
-  { title: 'End-of-Year Staff Giving', author: 'By: Cheddar Up', imageClass: 'imageGiving', featured: true },
-  { title: 'Birthday surprises!', author: 'By: Cheddar Up', imageClass: 'imageBirthday' },
+  { title: 'Wedding Gift', author: 'By: Cheddar Up', image: WeddingGiftImg },
+  { title: 'Secret! Baby Shower + Gift', author: 'By: Cheddar Up', image: BabyShowerImg },
+  { title: 'Volleyball Coach Gift', author: 'By: Cheddar Up', image: VolleyballImg },
+  { title: 'Coworker Retirement Lunch + Gift', author: 'By: Cheddar Up', image: RetirementImg },
+  { title: 'Staff Appreciation Superheroes', author: 'By: Cheddar Up', image: StaffImg },
+  { title: 'Secret Santa Sign Up Sheet', author: 'By: Cheddar Up', image: SecretSantaImg, featured: true },
+  { title: 'End-of-Year Staff Giving', author: 'By: Cheddar Up', image: EndYearImg, featured: true },
+  { title: 'Birthday surprises!', author: 'By: Cheddar Up', image: BirthdayImg },
 ]
 
 const GroupGiftsPage = () => {
@@ -66,8 +80,12 @@ const GroupGiftsPage = () => {
                 </Button>
               </div>
             </div>
+            
             <div className={styles.previewStack}>
-              <div className={styles.previewCircle} />
+               <div className={styles.girlWrapper}>
+                  <img src={GirlImg} alt="" className={styles.girlImage} />
+               </div>
+              
               <div className={styles.previewCardSmall}>
                 <div className={styles.previewHeader}>
                   <span>Build</span>
@@ -75,23 +93,45 @@ const GroupGiftsPage = () => {
                   <span>Manage</span>
                 </div>
                 <div className={styles.previewBody}>
-                  <div className={styles.previewThumb} />
+                  <div className={styles.previewThumb}>
+                    <img src={BearImg} alt="Bear" />
+                  </div>
                   <div className={styles.previewText}>
                     <strong>Baby gift for Jill and Dan</strong>
-                    <span>Contribution</span>
+                    <div className={styles.contributionRow}>
+                        <div className={styles.radio}></div>
+                        <span>Exact Amount</span>
+                    </div>
+                     <div className={styles.contributionRow}>
+                        <div className={`${styles.radio} ${styles.checked}`}></div>
+                        <span>Any Amount</span>
+                    </div>
                   </div>
-                  <Button variant="secondary" size="sm">Save</Button>
+                  <Button variant="secondary" size="sm" className={styles.previewSaveBtn}>Save</Button>
                 </div>
               </div>
+              
               <div className={styles.previewCardLarge}>
                 <div className={styles.previewHeader}>
                   <span>Build</span>
                   <span>Share</span>
                   <span>Manage</span>
                 </div>
-                <div className={styles.previewThumbLarge} />
-                <div className={styles.previewTotal}>$475.00</div>
-                <Button variant="primary" size="sm">Withdraw</Button>
+                <div className={styles.previewThumbLarge}>
+                    <img src={SelectedBearImg} alt="Selected Bear" />
+                </div>
+                <div className={styles.previewPriceDetails}>
+                    <span className={styles.previewLabel}>From the office</span>
+                    <div className={styles.previewTotal}>$475.00</div>
+                    <div className={styles.avatars}>
+                         {/* Placeholder avatars if needed, or simple circles */}
+                         <div className={styles.avatar}></div>
+                         <div className={styles.avatar}></div>
+                         <div className={styles.avatar}></div>
+                         <div className={styles.avatarCount}>+36</div>
+                    </div>
+                </div>
+                <Button variant="primary" size="sm" className={styles.previewWithdrawBtn}>Withdraw</Button>
               </div>
             </div>
           </section>
@@ -106,7 +146,8 @@ const GroupGiftsPage = () => {
             <div className={styles.templatesGrid}>
               {templates.map((template) => (
                 <div className={styles.templateCard} key={template.title}>
-                  <div className={`${styles.templateImage} ${styles[template.imageClass]}`}>
+                  <div className={styles.templateImage}>
+                    <img src={template.image} alt={template.title} />
                     {template.featured ? <span className={styles.star}><StarIcon /></span> : null}
                   </div>
                   <div className={styles.templateBody}>
