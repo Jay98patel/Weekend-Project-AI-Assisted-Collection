@@ -82,56 +82,65 @@ const GroupGiftsPage = () => {
             </div>
             
             <div className={styles.previewStack}>
-               <div className={styles.girlWrapper}>
-                  <img src={GirlImg} alt="" className={styles.girlImage} />
-               </div>
-              
-              <div className={styles.previewCardSmall}>
-                <div className={styles.previewHeader}>
-                  <span>Build</span>
-                  <span>Share</span>
-                  <span>Manage</span>
-                </div>
-                <div className={styles.previewBody}>
-                  <div className={styles.previewThumb}>
-                    <img src={BearImg} alt="Bear" />
-                  </div>
-                  <div className={styles.previewText}>
-                    <strong>Baby gift for Jill and Dan</strong>
-                    <div className={styles.contributionRow}>
-                        <div className={styles.radio}></div>
-                        <span>Exact Amount</span>
-                    </div>
-                     <div className={styles.contributionRow}>
-                        <div className={`${styles.radio} ${styles.checked}`}></div>
-                        <span>Any Amount</span>
-                    </div>
-                  </div>
-                  <Button variant="secondary" size="sm" className={styles.previewSaveBtn}>Save</Button>
-                </div>
+              <div className={styles.girlContainer}>
+                <img src={GirlImg} alt="" className={styles.girlImage} />
               </div>
-              
-              <div className={styles.previewCardLarge}>
-                <div className={styles.previewHeader}>
-                  <span>Build</span>
-                  <span>Share</span>
-                  <span>Manage</span>
-                </div>
-                <div className={styles.previewThumbLarge}>
-                    <img src={SelectedBearImg} alt="Selected Bear" />
-                </div>
-                <div className={styles.previewPriceDetails}>
-                    <span className={styles.previewLabel}>From the office</span>
-                    <div className={styles.previewTotal}>$475.00</div>
-                    <div className={styles.avatars}>
-                         {/* Placeholder avatars if needed, or simple circles */}
-                         <div className={styles.avatar}></div>
-                         <div className={styles.avatar}></div>
-                         <div className={styles.avatar}></div>
-                         <div className={styles.avatarCount}>+36</div>
+
+              <div className={styles.previewCardsRow}>
+                {/* Card 1: Build/Save */}
+                <div className={styles.previewCard}>
+                  <div className={styles.cardHeader}>
+                    <span className={styles.activeTab}>Build</span>
+                    <span>Share</span>
+                    <span>Manage</span>
+                  </div>
+                  <div className={styles.cardBody}>
+                    <div className={styles.purpleHero}>
+                      <img src={BearImg} alt="Bear" className={styles.bearImg} />
                     </div>
+                    <div className={styles.cardContent}>
+                      <h4>Baby gift for<br />Jill and Dan</h4>
+                      <p className={styles.contributionLabel}>Contribution:</p>
+                      <div className={styles.radioOption}>
+                        <div className={styles.radioUnchecked} />
+                        <span>Exact Amount</span>
+                      </div>
+                      <div className={styles.radioOption}>
+                        <div className={styles.radioChecked}><span className={styles.checkIcon}>✓</span></div>
+                        <span>Any Amount</span>
+                      </div>
+                      <Button variant="secondary" size="sm" className={styles.saveBtn}>Save</Button>
+                    </div>
+                  </div>
                 </div>
-                <Button variant="primary" size="sm" className={styles.previewWithdrawBtn}>Withdraw</Button>
+
+                {/* Card 2: Manage/Withdraw */}
+                <div className={styles.previewCard}>
+                  <div className={styles.cardHeader}>
+                    <span>Build</span>
+                    <span>Share</span>
+                    <span className={styles.activeTab}>Manage</span>
+                  </div>
+                  <div className={styles.cardBody}>
+                    <div className={styles.purpleHero}>
+                      <img src={SelectedBearImg} alt="Bear" className={styles.bearImg} />
+                      <div className={styles.checkmarkOverlay}>✓</div>
+                    </div>
+                    <div className={styles.cardContent}>
+                      <p className={styles.officeLabel}>From the office</p>
+                      <div className={styles.priceTag}>$475.00</div>
+                      
+                      <div className={styles.avatarsRow}>
+                         <div className={styles.avatarImg} style={{ backgroundColor: '#ccc' }} /> 
+                         <div className={styles.avatarImg} style={{ backgroundColor: '#bbb' }} /> 
+                         <div className={styles.avatarImg} style={{ backgroundColor: '#aaa' }} /> 
+                         <div className={styles.avatarCount}>+36</div>
+                      </div>
+
+                      <Button variant="primary" size="sm" className={styles.withdrawBtn}>Withdraw</Button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>

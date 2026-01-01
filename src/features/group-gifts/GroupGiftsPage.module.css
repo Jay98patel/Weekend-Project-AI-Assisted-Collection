@@ -14,10 +14,9 @@
 
 .header h1 {
   font-family: var(--font-heading);
-  font-size: 32px; /* Adjust if Figma says 40 */
+  font-size: 32px;
   color: var(--color-grey-800);
   margin: 0 0 var(--space-4);
-  /* Underline effect - assuming simple border-bottom or pseudo */
   text-decoration: underline;
   text-decoration-color: var(--color-aqua-600);
   text-decoration-thickness: 3px;
@@ -30,7 +29,6 @@
   line-height: 1.5;
 }
 
-/* Create Section */
 .createSection {
   display: flex;
   gap: var(--space-8);
@@ -86,186 +84,232 @@
   border: none;
 }
 
-/* Preview Stack (AI Visual) */
 .previewStack {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-left: 0;
+}
+
+.girlContainer {
   position: relative;
-  width: 450px;
-  height: 350px;
-  /* background-color: var(--color-yellow-500); circle bg handled by girl wrapper or pseudo? */
-}
-
-/* Yellow circle background behind girl */
-.girlWrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 300px; 
+  width: 250px;
   height: 300px;
-  z-index: 1;
-}
-
-.girlWrapper::before {
-  content: "";
-  position: absolute;
-  inset: 20px;
-  background-color: var(--color-yellow-500);
-  border-radius: 50%;
-  z-index: -1;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .girlImage {
+  position: relative;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 50%; /* If girl image needs clipping */
-  /* Or just contain if transparent png */
   object-fit: contain;
-  border-radius: 0;
+  z-index: 1;
 }
 
-/* The small card "Baby gift..." */
-.previewCardSmall {
-  position: absolute;
-  width: 180px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: var(--shadow-md);
-  z-index: 3;
-  left: 0;
-  bottom: 40px;
-  overflow: hidden;
-  border: 1px solid var(--color-grey-200);
-}
-
-/* The large card "From the office..." */
-.previewCardLarge {
-  position: absolute;
-  width: 180px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: var(--shadow-lg);
+.previewCardsRow {
+  display: flex;
+  gap: var(--space-4);
   z-index: 2;
-  left: 140px; /* Offset to right */
-  top: 20px; /* Offset to top */
-  overflow: hidden;
-  border: 1px solid var(--color-grey-200);
+  margin-left: -40px;
 }
 
-.previewHeader {
-  background: #E8F4F6; /* Light teal bg */
+.previewCard {
+  width: 180px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 340px;
+}
+
+.cardHeader {
+  background-color: #E8EFF1;
   padding: 8px 12px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.previewHeader span {
-  font-size: 9px;
-  color: var(--color-teal-600);
+.cardHeader span {
+  font-size: 10px;
   font-weight: 600;
+  color: #8CAAB1;
+  cursor: default;
 }
 
-.previewBody {
+.cardHeader .activeTab {
+  color: var(--color-teal-700);
+  font-weight: 800;
+}
+
+.cardBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.purpleHero {
+  background-color: #A89CE3;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.bearImg {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.checkmarkOverlay {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.cardContent {
   padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  align-items: center;
-  text-align: center;
+  background: white;
+  flex: 1;
 }
 
-.previewThumb img, .previewThumbLarge img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.previewText strong {
-  display: block;
-  font-size: 12px;
+.cardContent h4 {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.3;
   color: var(--color-grey-800);
-  margin-bottom: 4px;
+  font-weight: 700;
 }
 
-.contributionRow {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 10px;
-    color: var(--color-grey-600);
-    width: 100%;
-}
-.radio {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: 1px solid var(--color-grey-300);
-}
-.checked {
-    background-color: var(--color-orange-500);
-    border-color: var(--color-orange-500);
+.contributionLabel {
+  font-size: 10px;
+  color: var(--color-grey-600);
+  margin: 0;
 }
 
-.previewSaveBtn {
-    width: 100%;
-    font-size: 10px;
-    height: 24px;
-    min-height: 0;
-}
-.previewWithdrawBtn {
-    width: 100%;
-    font-size: 10px;
-    height: 28px;
-    min-height: 0;
-    margin: 12px;
-    width: calc(100% - 24px);
+.radioOption {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
 }
 
-.previewPriceDetails {
-    text-align: center;
-    padding: 12px;
+.radioOption span {
+  font-size: 10px;
+  color: var(--color-grey-800);
+  font-weight: 500;
 }
-.previewLabel {
-    font-size: 10px;
-    color: var(--color-teal-600);
-    display: block;
-    margin-bottom: 4px;
+
+.radioUnchecked {
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--color-grey-300);
+  border-radius: 50%;
 }
-.previewTotal {
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--color-grey-800);
+
+.radioChecked {
+  width: 14px;
+  height: 14px;
+  background-color: var(--color-orange-500);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.avatars {
-    display: flex;
-    justify-content: center;
-    margin-top: 8px;
+
+.checkIcon {
+  color: white;
+  font-size: 9px;
+  line-height: 1;
 }
-.avatar {
-    width: 16px;
-    height: 16px;
-    background: #ddd;
-    border-radius: 50%;
-    border: 1px solid white;
-    margin-left: -4px;
+
+.officeLabel {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-teal-600);
+  margin: 0;
 }
+
+.priceTag {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-grey-800);
+  margin: 4px 0;
+  line-height: 1;
+}
+
+.avatarsRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.avatarImg {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-size: cover;
+  margin-right: -6px;
+}
+
 .avatarCount {
-    width: 16px;
-    height: 16px;
-    background: var(--color-yellow-500);
-    border-radius: 50%;
-    border: 1px solid white;
-    margin-left: -4px;
-    font-size: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-grey-800);
-    font-weight: bold;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--color-yellow-500);
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 700;
+  color: var(--color-grey-800);
+  margin-left: -6px;
+  z-index: 2;
 }
 
+.saveBtn, .withdrawBtn {
+  width: 100%;
+  height: 36px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: none;
+  font-weight: 600;
+  margin-top: auto;
+  cursor: pointer;
+}
 
-/* Templates Section */
+.saveBtn {
+  background-color: var(--color-teal-700);
+  color: white;
+}
+
+.withdrawBtn {
+  background-color: var(--color-orange-500);
+  color: white;
+}
+
 .templatesSection {
   margin-top: var(--space-8);
 }
