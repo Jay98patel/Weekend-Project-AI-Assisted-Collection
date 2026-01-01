@@ -1,6 +1,14 @@
 ﻿import { Link } from 'react-router-dom'
 import GiftIcon from '../../assets/icons/gift.svg'
 import FormIcon from '../../assets/icons/form.svg'
+import RecurringPaymentsIcon from '../../assets/icons/recurring-payments.svg'
+import EventTicketsIcon from '../../assets/icons/event-tickets.svg'
+import CustomAllInOneIcon from '../../assets/icons/custom-all-in-one.svg'
+import FlatDonationsIcon from '../../assets/icons/flat-donations.svg'
+import ProductSalesIcon from '../../assets/icons/product-sales.svg'
+import ActivityBasedIcon from '../../assets/icons/activity-based.svg'
+import LearnMoreIcon from '../../assets/icons/learn-more.svg'
+import OnlineShopIcon from '../../assets/icons/online-shop.svg'
 import TopNav from '../../components/TopNav'
 import styles from './DashboardPage.module.css'
 
@@ -16,6 +24,7 @@ const collectionTiles: Tile[] = [
   {
     title: 'Online Shop',
     description: 'Sell items online to optimize sales',
+    icon: OnlineShopIcon,
   },
   {
     title: 'Group Gifts',
@@ -31,16 +40,19 @@ const collectionTiles: Tile[] = [
   {
     title: 'Recurring Payments',
     description: 'Membership registration or subscription dues',
+    icon: RecurringPaymentsIcon,
   },
   {
     title: 'Event Tickets',
     description: 'Sell tickets and accept payments',
     pro: true,
+    icon: EventTicketsIcon,
   },
   {
     title: 'Custom All-in-One',
     description: 'Sell or collect anything (items, tickets, forms, etc.)',
     pro: true,
+    icon: CustomAllInOneIcon,
   },
 ]
 
@@ -48,14 +60,17 @@ const fundraiserTiles: Tile[] = [
   {
     title: 'Flat Donations',
     description: 'Supporters to contribute a one-time donation',
+    icon: FlatDonationsIcon,
   },
   {
     title: 'Product Sales',
     description: 'Supporters purchase from an online sales catalog',
+    icon: ProductSalesIcon,
   },
   {
     title: 'Activity-based "Athon"',
     description: 'Supporters pledge amount per participant activity',
+    icon: ActivityBasedIcon,
   },
 ]
 
@@ -75,20 +90,20 @@ const DashboardPage = () => {
               {collectionTiles.map((tile) => {
                 const cardContent = (
                   <>
-                    <div className={styles.icon}>
-                      {tile.icon ? (
-                        <img src={tile.icon} alt="" width={24} height={24} />
-                      ) : (
-                        <span className={styles.iconMark} />
-                      )}
-                    </div>
-                    <div className={styles.cardText}>
+                    <div className={styles.cardHeader}>
+                      <div className={styles.icon}>
+                        {tile.icon ? (
+                          <img src={tile.icon} alt="" width={24} height={24} />
+                        ) : (
+                          <span className={styles.iconMark} />
+                        )}
+                      </div>
                       <div className={styles.cardTitleRow}>
                         <h3>{tile.title}</h3>
                         {tile.pro ? <span className={styles.proPill}>Pro plan</span> : null}
                       </div>
-                      <p>{tile.description}</p>
                     </div>
+                    <p className={styles.description}>{tile.description}</p>
                   </>
                 )
 
@@ -109,22 +124,26 @@ const DashboardPage = () => {
             <div className={styles.sectionHeader}>
               <span className={styles.sectionLabel}>FUNDRAISER</span>
               <button className={styles.learnMore} type="button">
-                <span className={styles.infoDot}>?</span>
+                <img src={LearnMoreIcon} alt="" className={styles.infoDot} />
                 Learn more
               </button>
             </div>
             <div className={styles.grid}>
               {fundraiserTiles.map((tile) => (
                 <div className={styles.card} key={tile.title}>
-                  <div className={styles.iconAlt}>
-                    <span className={styles.iconMarkAlt} />
-                  </div>
-                  <div className={styles.cardText}>
+                  <div className={styles.cardHeader}>
+                    <div className={styles.iconAlt}>
+                      {tile.icon ? (
+                        <img src={tile.icon} alt="" width={32} height={32} />
+                      ) : (
+                        <span className={styles.iconMarkAlt} />
+                      )}
+                    </div>
                     <div className={styles.cardTitleRow}>
                       <h3>{tile.title}</h3>
                     </div>
-                    <p>{tile.description}</p>
                   </div>
+                  <p className={styles.description}>{tile.description}</p>
                 </div>
               ))}
             </div>

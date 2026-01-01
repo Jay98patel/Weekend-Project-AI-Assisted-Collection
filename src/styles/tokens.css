@@ -1,26 +1,35 @@
 ﻿:root {
-  --color-grey-800: #272727;
-  --color-white: #ffffff;
+  /* Greys */
+  --color-grey-100: #f7f7f7;
+  --color-grey-200: #f0f0f0;
   --color-grey-300: #dedede;
+  --color-grey-500: #909090;
+  --color-grey-600: #6d6d6d;
+  --color-grey-700: #4a4a4a;
+  --color-grey-800: #272727;
+
+  /* Brand Colors */
+  --color-orange-100: #fff0ea; 
   --color-orange-500: #f36d36;
   --color-yellow-500: #f9c442;
-  --color-black: #000000;
-  --color-teal-600: #257f91;
-  --color-grey-600: #6d6d6d;
-  --color-grey-100: #f7f7f7;
-  --color-grey-700: #4a4a4a;
   --color-teal-200: #cbeaee;
+  --color-teal-600: #257f91;
   --color-teal-700: #1d6371;
-  --color-orange-100: #fff0ea;
   --color-aqua-600: #2083ae;
-  --color-grey-200: #f0f0f0;
-  --color-grey-500: #909090;
+
+  /* Base Colors */
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* Accent Colors */
   --color-accent-pink: #ff17c5;
   --color-accent-purple: #8a38f5;
   --color-accent-lavender: #e9cdf2;
   --color-accent-green: #00de67;
   --color-accent-charcoal: #414042;
-  --gradient-orange-yellow: linear-gradient(135deg, #f36d36 0%, #f9c442 100%);
+
+  /* Gradients */
+  --gradient-orange-yellow: linear-gradient(135deg, var(--color-orange-500) 0%, var(--color-yellow-500) 100%);
   --font-heading: "Glamour Absolute", "Playfair Display", "Times New Roman", serif;
   --font-body: "Avenir", "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --radius-sm: 6px;
@@ -44,5 +53,5 @@
   --space-11: 64px;
   --space-12: 80px;
   --space-13: 96px;
-  --container-max: 1120px;
+  --container-max: 1366px;
 }
