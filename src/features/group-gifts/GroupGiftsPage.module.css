@@ -1,0 +1,291 @@
+﻿.page {
+  min-height: 100vh;
+  background-color: var(--color-white);
+}
+
+.main {
+  padding: var(--space-7) 0 var(--space-12);
+}
+
+.header h1 {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  margin: var(--space-5) 0 var(--space-2);
+  color: var(--color-grey-800);
+}
+
+.header p {
+  margin: 0 0 var(--space-6);
+  color: var(--color-grey-600);
+  font-size: 13px;
+}
+
+.createSection {
+  display: flex;
+  gap: var(--space-9);
+  align-items: flex-start;
+}
+
+.createCards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+  flex: 1;
+}
+
+.createCard {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-grey-300);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-height: 180px;
+}
+
+.createCard h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--color-grey-800);
+}
+
+.createCard p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--color-grey-600);
+}
+
+.tryAiButton {
+  background-color: var(--color-teal-200);
+  color: var(--color-teal-600);
+  border: 1px solid var(--color-teal-200);
+}
+
+.sparkle {
+  display: inline-flex;
+  color: var(--color-orange-500);
+}
+
+.previewStack {
+  position: relative;
+  width: 320px;
+  height: 260px;
+}
+
+.previewCircle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--gradient-orange-yellow);
+  position: absolute;
+  left: 0;
+  top: 60px;
+}
+
+.previewCardSmall,
+.previewCardLarge {
+  position: absolute;
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-grey-200);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.previewCardSmall {
+  width: 190px;
+  right: 0;
+  top: 0;
+}
+
+.previewCardLarge {
+  width: 210px;
+  right: -10px;
+  top: 110px;
+  align-items: center;
+}
+
+.previewHeader {
+  display: flex;
+  gap: var(--space-2);
+  font-size: 10px;
+  color: var(--color-grey-500);
+  justify-content: space-between;
+}
+
+.previewHeader span {
+  flex: 1;
+  text-align: center;
+}
+
+.previewBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.previewThumb {
+  width: 100%;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-teal-200);
+}
+
+.previewThumbLarge {
+  width: 100%;
+  height: 80px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-teal-200);
+}
+
+.previewText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 11px;
+  color: var(--color-grey-700);
+}
+
+.previewText strong {
+  font-size: 11px;
+}
+
+.previewTotal {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-grey-800);
+}
+
+.templatesSection {
+  margin-top: var(--space-9);
+}
+
+.templatesHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--color-grey-500);
+  font-weight: 700;
+}
+
+.sortButton {
+  border: 1px solid var(--color-grey-300);
+  border-radius: var(--radius-pill);
+  padding: 6px 12px;
+  font-size: 12px;
+  color: var(--color-grey-700);
+  background-color: var(--color-white);
+  cursor: pointer;
+}
+
+.templatesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.templateCard {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-grey-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s ease, border-color 0.2s ease;
+}
+
+.templateCard:hover {
+  transform: translateY(-1px);
+  border-color: var(--color-grey-500);
+}
+
+.templateImage {
+  height: 110px;
+  position: relative;
+}
+
+.templateBody {
+  padding: var(--space-3);
+}
+
+.templateBody h4 {
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: var(--color-grey-800);
+}
+
+.templateBody p {
+  margin: 0;
+  font-size: 11px;
+  color: var(--color-grey-600);
+}
+
+.star {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  color: var(--color-orange-500);
+}
+
+.imageWedding {
+  background: linear-gradient(135deg, var(--color-accent-lavender) 0%, var(--color-grey-100) 100%);
+}
+
+.imageBaby {
+  background: linear-gradient(135deg, var(--color-teal-200) 0%, var(--color-white) 100%);
+}
+
+.imageVolley {
+  background: linear-gradient(135deg, var(--color-yellow-500) 0%, var(--color-orange-100) 100%);
+}
+
+.imageRetirement {
+  background: linear-gradient(135deg, var(--color-orange-500) 0%, var(--color-orange-100) 100%);
+}
+
+.imageStaff {
+  background: linear-gradient(135deg, var(--color-aqua-600) 0%, var(--color-white) 100%);
+}
+
+.imageSanta {
+  background: linear-gradient(135deg, var(--color-accent-pink) 0%, var(--color-grey-100) 100%);
+}
+
+.imageGiving {
+  background: linear-gradient(135deg, var(--color-accent-green) 0%, var(--color-grey-100) 100%);
+}
+
+.imageBirthday {
+  background: linear-gradient(135deg, var(--color-accent-purple) 0%, var(--color-accent-lavender) 100%);
+}
+
+@media (max-width: 1024px) {
+  .createSection {
+    flex-direction: column;
+  }
+
+  .previewStack {
+    align-self: center;
+  }
+
+  .templatesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .createCards {
+    grid-template-columns: 1fr;
+  }
+
+  .templatesGrid {
+    grid-template-columns: 1fr;
+  }
+}

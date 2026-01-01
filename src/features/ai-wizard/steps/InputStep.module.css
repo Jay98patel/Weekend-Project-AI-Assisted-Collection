@@ -1,0 +1,47 @@
+﻿.page {
+  min-height: 100vh;
+  background-color: var(--color-white);
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-12) var(--space-6);
+  animation: fadeIn 0.3s ease;
+}
+
+.center {
+  text-align: center;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--color-grey-800);
+  margin: 0;
+}
+
+.subtext {
+  margin: 0;
+  color: var(--color-grey-600);
+  font-size: 15px;
+}
+
+.inputWrap {
+  margin-top: var(--space-2);
+}
+
+.chips {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  flex-wrap: wrap;
+}

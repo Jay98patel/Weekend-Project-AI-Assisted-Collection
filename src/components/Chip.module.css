@@ -1,0 +1,27 @@
+﻿.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-teal-200);
+  color: var(--color-teal-600);
+  border: 1px solid transparent;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.chip:hover {
+  border-color: var(--color-teal-600);
+}
+
+.selected {
+  background-color: var(--color-teal-600);
+  color: var(--color-white);
+}
+
+.selected:hover {
+  background-color: var(--color-teal-700);
+}

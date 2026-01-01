@@ -1,0 +1,50 @@
+﻿.nav {
+  border-bottom: 1px solid var(--color-grey-300);
+  background-color: var(--color-white);
+}
+
+.inner {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(100%, var(--container-max));
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-orange-500);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.link:hover {
+  color: var(--color-orange-500);
+  text-decoration: underline;
+}
+
+.icon {
+  width: 14px;
+  height: 14px;
+}
+
+.logo {
+  width: 26px;
+  height: 26px;
+}

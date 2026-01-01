@@ -1,0 +1,107 @@
+﻿.page {
+  min-height: 100vh;
+  background-color: var(--color-white);
+}
+
+.main {
+  padding: var(--space-8) var(--space-6) var(--space-12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  animation: fadeIn 0.3s ease;
+}
+
+.promptRow {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.feedbackRow {
+  min-height: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.feedbackSkeleton {
+  width: 360px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-grey-100);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeletonCard {
+  width: min(100%, 760px);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-grey-200);
+  overflow: hidden;
+}
+
+.skeletonHero {
+  height: 260px;
+  background-color: var(--color-grey-100);
+}
+
+.skeletonBody {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.skeletonLine,
+.skeletonLineWide {
+  height: 14px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-grey-100);
+}
+
+.skeletonLine {
+  width: 55%;
+}
+
+.skeletonLineWide {
+  width: 85%;
+}
+
+.skeletonFooter {
+  width: min(100%, 760px);
+  height: 56px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-grey-200);
+  background-color: var(--color-white);
+}
+
+.skeletonHero,
+.skeletonLine,
+.skeletonLineWide,
+.feedbackSkeleton {
+  position: relative;
+  overflow: hidden;
+}
+
+.skeletonHero::after,
+.skeletonLine::after,
+.skeletonLineWide::after,
+.feedbackSkeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0) 100%);
+  transform: translateX(-100%);
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

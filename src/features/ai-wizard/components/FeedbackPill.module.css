@@ -1,0 +1,11 @@
+﻿.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-orange-100);
+  color: var(--color-grey-700);
+  font-size: 13px;
+  font-weight: 600;
+}
